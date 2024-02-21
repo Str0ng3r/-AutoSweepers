@@ -477,11 +477,6 @@ section.dark_bg {
   float: right;
 }
 
-/*sect_1*/
-.sect_1 {
-  padding-bottom: 40px;
-}
-
 .list_4 {
   font-size: 0;
   letter-spacing: -1px;
@@ -1096,17 +1091,16 @@ section.dark_bg {
   color: #f03737;
   font-size: 28px;
 }
-.zakaz_sect {
-  padding: 30px 0px;
+
+main {
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  max-width: 480px;
-  background-color: #22232b;
 }
-.zakaz_sect input {
+
+.zakaz_cont input {
   border-radius: 20px;
   width: 80%;
   padding: 20px 16px 20px 16px;
@@ -1117,7 +1111,7 @@ section.dark_bg {
   font-size: 18px;
   margin-bottom: 10px;
 }
-.zakaz_sect button {
+.zakaz_cont button {
   border-radius: 30px;
   width: 80%;
   padding: 20px 16px 20px 16px;
@@ -1128,15 +1122,16 @@ section.dark_bg {
   color: #212121;
   transition: all 0.3s ease;
 }
-.zakaz_sect button:hover {
+.zakaz_cont button:hover {
   color: red;
   transform: scale(1.2);
   border: none;
 }
-main {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  align-items: center;
-  justify-content: center;
+.komplectation {
+  color: #ee8208;
+  font-size:18px ;
+}
+.komplectation span{
+  color: #ffcd3b;
+  font-size:18px ;
 }

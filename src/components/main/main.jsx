@@ -146,12 +146,24 @@ export const Main = () => {
               </div>
             </li>
           </ul>
-          <img src="" />
+          <iframe
+            width="480"
+            height="315"
+            src="https://www.youtube.com/embed/eJTIRFdLeZA?si=Kwre3JOqHRMl7zWz"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
         </section>
         {/*sect_2*/}
         <section className={`${styles.sect_2} ${styles.dark_bg}`}>
           <h2 className={styles.title}>
             <p>Повний комплект</p>
+            <p className={styles.komplectation}>
+              <span>Комплектація:</span> <br />
+              Автопилосос, Подовжувач, 2 насадки, сумка
+            </p>
           </h2>
           <div className={styles.gallery}>
             <img src={photo6} />
@@ -270,62 +282,61 @@ export const Main = () => {
               <small>грн.</small>
             </div>
           </div>
-          <div className={styles.timer_block}></div>
+          <div className={styles.zakaz_cont}>
+            <input
+              type="text"
+              placeholder="Ваше ім'я"
+              value={name}
+              onChange={(evt) => {
+                setName(evt.target.value);
+              }}
+            />
+            <input
+              type="tel"
+              placeholder="Ваш номер телефону"
+              value={tel}
+              onChange={(evt) => {
+                setTel(evt.target.value);
+              }}
+            />
+            <input
+              type="mail"
+              placeholder="Ваша пошта"
+              value={mail}
+              onChange={(evt) => {
+                setMail(evt.target.value);
+              }}
+            />
+            <button
+              onClick={() => {
+                const obj = {
+                  name,
+                  tel,
+                  mail,
+                };
+                axios
+                  .post(
+                    "https://65d668fcf6967ba8e3be1c66.mockapi.io/towarka/orders",
+                    obj
+                  )
+                  .then((response) => {
+                    // Обработка успешного ответа
+                    console.log("Заявка успішно відправлена");
+                  })
+                  .catch((error) => {
+                    // Обработка ошибки
+                    console.error("Помилка замовлення");
+                  });
+                setMail("");
+                setName("");
+                setTel("");
+              }}
+            >
+              ЗАМОВИТИ
+            </button>
+          </div>
         </section>
       </div>
-      <section className={styles.zakaz_sect} id="zakaz">
-        <input
-          type="text"
-          placeholder="Ваше ім'я"
-          value={name}
-          onChange={(evt) => {
-            setName(evt.target.value);
-          }}
-        />
-        <input
-          type="tel"
-          placeholder="Ваш номер телефону"
-          value={tel}
-          onChange={(evt) => {
-            setTel(evt.target.value);
-          }}
-        />
-        <input
-          type="mail"
-          placeholder="Ваша пошта"
-          value={mail}
-          onChange={(evt) => {
-            setMail(evt.target.value);
-          }}
-        />
-        <button
-          onClick={() => {
-            const obj = {
-              name,
-              tel,
-              mail,
-            };
-            axios
-              .post(
-                "https://65d668fcf6967ba8e3be1c66.mockapi.io/towarka/orders",
-                obj
-              )
-              .then((response) => {
-                // Обработка успешного ответа
-                console.log("Заявка успішно відправлена");
-              })
-              .catch((error) => {
-                // Обработка ошибки
-                console.error("Помилка замовлення");
-              });
-            setMail("");
-            setName("");
-            setTel("");
-          }}
-        >
-          ЗАМОВИТИ
-        </button>
-      </section>
     </main>
   );
 };
