@@ -7,10 +7,11 @@ import photo5 from "../../img/photo5.jpg";
 import photo6 from "../../img/photo6.jpg";
 import photo7 from "../../img/photo7.png";
 import { useState } from "react";
+import axios from "axios";
 export const Main = () => {
-  const [name,setName] = useState('')
-  const [tel,setTel] = useState('')
-  const [mail,setMail] = useState('')
+  const [name, setName] = useState("");
+  const [tel, setTel] = useState("");
+  const [mail, setMail] = useState("");
   return (
     <main>
       <div className={styles.main_wrapper}>
@@ -138,8 +139,9 @@ export const Main = () => {
                   <p>Матеріал та виробник</p>
                 </h4>
                 <p>
-                Виготовлений з високоякісних матеріалів, цей пилосос буде служити вашим помічником для очищення протягом тривалого часу.
-                СНГ Виробник(перевірено часом)
+                  Виготовлений з високоякісних матеріалів, цей пилосос буде
+                  служити вашим помічником для очищення протягом тривалого часу.
+                  СНГ Виробник(перевірено часом)
                 </p>
               </div>
             </li>
@@ -214,7 +216,9 @@ export const Main = () => {
           <div className={styles.offer_image}>
             <h2 className={styles.main_subtitle}>
               <p>
-                <span style={{ color: "rgb(250, 197, 28)" }}>Використовуй авто-пилесос</span>
+                <span style={{ color: "rgb(250, 197, 28)" }}>
+                  Використовуй авто-пилесос
+                </span>
               </p>
               <span>Для будь якого салону</span>
             </h2>
@@ -222,19 +226,31 @@ export const Main = () => {
           </div>
           <ul className={`${styles.bull} ${styles.clearfix}`}>
             <li>
-              <img height="200" width="200" src="https://a.d-cd.net/99a025u-960.jpg" />
+              <img
+                height="200"
+                width="200"
+                src="https://a.d-cd.net/99a025u-960.jpg"
+              />
               <h3>
                 <span></span>
               </h3>
             </li>
             <li>
-              <img height="200" width="200" src="https://rusautolack.ru/storage/app/media/news//2a5/_18007.jpg" />
+              <img
+                height="200"
+                width="200"
+                src="https://rusautolack.ru/storage/app/media/news//2a5/_18007.jpg"
+              />
               <h3>
                 <span></span>
               </h3>
             </li>
             <li>
-              <img height="200" width="200" src="https://a.d-cd.net/6b71785s-960.jpg" />
+              <img
+                height="200"
+                width="200"
+                src="https://a.d-cd.net/6b71785s-960.jpg"
+              />
               <h3>
                 <span></span>
               </h3>
@@ -258,15 +274,58 @@ export const Main = () => {
         </section>
       </div>
       <section className={styles.zakaz_sect} id="zakaz">
-          <input type="text" placeholder="Ваше ім'я" value={name} onChange={evt => {setName(evt.target.value)}}/>
-          <input type="tel" placeholder="Ваш номер телефону" value={tel} onChange={evt => {setTel(evt.target.value)}}/>
-          <input type="mail" placeholder="Ваша пошта" value={mail} onChange={evt => {setMail(evt.target.value)}}/>
-          <button onClick={() => {
-            setMail('')
-            setName('')
-            setTel('')
-          }}>ЗАМОВИТИ</button>
-        </section>
+        <input
+          type="text"
+          placeholder="Ваше ім'я"
+          value={name}
+          onChange={(evt) => {
+            setName(evt.target.value);
+          }}
+        />
+        <input
+          type="tel"
+          placeholder="Ваш номер телефону"
+          value={tel}
+          onChange={(evt) => {
+            setTel(evt.target.value);
+          }}
+        />
+        <input
+          type="mail"
+          placeholder="Ваша пошта"
+          value={mail}
+          onChange={(evt) => {
+            setMail(evt.target.value);
+          }}
+        />
+        <button
+          onClick={() => {
+            const obj = {
+              name,
+              tel,
+              mail,
+            };
+            axios
+              .post(
+                "https://65d668fcf6967ba8e3be1c66.mockapi.io/towarka/orders",
+                obj
+              )
+              .then((response) => {
+                // Обработка успешного ответа
+                console.log("Заявка успішно відправлена");
+              })
+              .catch((error) => {
+                // Обработка ошибки
+                console.error("Помилка замовлення");
+              });
+            setMail("");
+            setName("");
+            setTel("");
+          }}
+        >
+          ЗАМОВИТИ
+        </button>
+      </section>
     </main>
   );
 };
