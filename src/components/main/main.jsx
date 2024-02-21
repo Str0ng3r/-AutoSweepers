@@ -27,7 +27,6 @@ export const Main = () => {
                   Автомобільний пилосос Белавто Торнадо 12В
                 </span>
               </p>
-              <span></span>
             </h2>
             <img className={styles.offer_product} src="" />
           </div>
@@ -259,10 +258,14 @@ export const Main = () => {
         </section>
       </div>
       <section className={styles.zakaz_sect} id="zakaz">
-          <input type="text" placeholder="Ваше ім'я"/>
-          <input type="tel" placeholder="Ваш номер телефону"/>
-          <input type="mail" placeholder="Ваша пошта"/>
-          <button>ЗАМОВИТИ</button>
+          <input type="text" placeholder="Ваше ім'я" value={name} onChange={evt => {setName(evt.target.value)}}/>
+          <input type="tel" placeholder="Ваш номер телефону" value={tel} onChange={evt => {setTel(evt.target.value)}}/>
+          <input type="mail" placeholder="Ваша пошта" value={mail} onChange={evt => {setMail(evt.target.value)}}/>
+          <button onClick={() => {
+            setMail('')
+            setName('')
+            setTel('')
+          }}>ЗАМОВИТИ</button>
         </section>
     </main>
   );
