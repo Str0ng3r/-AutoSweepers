@@ -162,7 +162,7 @@ export const Main = () => {
             <p>Повний комплект</p>
             <p className={styles.komplectation}>
               <span>Комплектація:</span> <br />
-              Автопилосос, Подовжувач, 2 насадки, сумка
+              Автопилосос,Подовжувач,2 насадки,сумка
             </p>
           </h2>
           <div className={styles.gallery}>
