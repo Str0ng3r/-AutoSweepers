@@ -282,7 +282,7 @@ export const Main = () => {
               <small>грн.</small>
             </div>
           </div>
-          <div className={styles.zakaz_cont} id="zakaz">
+          <div className={styles.zakaz_cont} id="zakaz"> 
             <input
               type="text"
               placeholder="Ваше ім'я"
