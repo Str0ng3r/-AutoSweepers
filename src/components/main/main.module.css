@@ -13,6 +13,63 @@ body {
   cursor: default;
 }
 
+.box_header_footer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.box_header_footer > div {
+  width: 50%;
+  height: 66px;
+  float: left;
+  padding: 3px 0;
+  font-weight: 500;
+  text-align: center;
+  font-size: 14px;
+  background-color: #22232b;
+}
+
+.box_header_footer > div > p {
+  line-height: 14px;
+  padding: 6px 0 0;
+  color: #ffcd00;
+}
+
+.box_header_footer > div > span {
+  font-size: 36px;
+  line-height: 1.05em;
+}
+
+.box_header_footer > div > small {
+  font-size: 30px;
+}
+
+.box_header_footer > div.old > span {
+  text-decoration: line-through;
+  color: #ffffff;
+}
+
+.box_header_footer > div.old {
+  font-weight: 400;
+}
+.box_header_footer > div.old small {
+  color: #ffffff;
+}
+
+.box_header_footer > div.new {
+  color: red;
+  position: relative;
+}
+
+.box_header_footer > div.new > small,
+.box_header_footer > div.new > span {
+  font-weight: 700;
+}
+
+
+
 .main_wrapper {
   margin: 0 auto;
   width: 480px;

@@ -37,7 +37,7 @@ export const Main = () => {
               <h3>
                 <p>
                   <span style={{ color: "rgb(250, 197, 28)" }}>
-                    Велика коплектація
+                    Велика комплектація
                   </span>
                 </p>
                 <span>
@@ -70,6 +70,25 @@ export const Main = () => {
               </h3>
             </li>
           </ul>
+          <div className={styles.box_header_footer}>
+          <div className={styles.old}>
+              <p>Звичайна ціна:</p>
+              <span>
+                <p>1699 грн</p>
+              </span>
+            </div>
+            <div className={styles.new}>
+              <p>Ціна по акції:</p>
+              <small></small>
+              <span>899</span>
+              <small>грн.</small>
+            </div>
+            </div>
+            <div className={styles.char_container}>
+            <a href="#zakaz" className={styles.button}>
+              <p>Замовити зі знижкою</p>
+            </a>
+          </div>
         </header>
         <section className={styles.description}>
           <h2 className={styles.title}>
